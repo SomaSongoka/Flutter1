@@ -1,52 +1,40 @@
-// First we need to import the UI Library which is MaterialTheme UI
+/**
+ * IMPORT
+ * 1: Material Theme
+ */
 import 'package:flutter/material.dart';
 
-/*
-Remember Flutter is all about Widgets, and we need to build our first main widget
-
--> The widget class we create will extend the main widget classes available in material package
+/**
+ *  Main Class to run our App
  */
+void main() => runApp(MyApp());
 
+/**
+ * MyClass
+ * - Main class to build and load our Flutter Widgets
+ */
 class MyApp extends StatelessWidget {
+  /** Method Override */
   @override
   Widget build(BuildContext context) {
-    //Now after all is done we need to return the widget
-    // home: Text('Hello App')
-    /* We use Scaffold to build background and more */
+    /** MatrialApp Widget */
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           title: Text("First App"),
         ),
-        body: Column(children: [
-          Text("What is Your name"),
-          RaisedButton(
-            child: Text("Answer 1"),
-            onPressed: null,
-          ),
-          Row(
-            children: [
-              RaisedButton(
-                child: Text("Answer 2"),
-                onPressed: null,
-              ),
-            ],
-          ),
-          RaisedButton(
-            child: Text("Answer 3"),
-            onPressed: null,
-          ),
-        ]),
+        body: Column(
+          children: [
+            // Text
+            Text("Question 1: What is your name?"),
+
+            //Buttons
+            ElevatedButton(onPressed: null, child: Text("Answer 1"),),
+            ElevatedButton(onPressed: null, child: Text("Answer 2"),),
+            ElevatedButton(onPressed: null, child: Text("Answer 3"),),
+          ],
+        ),
       ),
     );
-
-    // TODO: implement build
-    //throw UnimplementedError();
   }
-}
-
-//Theme we load our main function
-void main() {
-  //Now we need to tell the main.dart our main widget
-  runApp(MyApp());
 }
