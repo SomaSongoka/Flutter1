@@ -13,13 +13,25 @@ void main() => runApp(MyApp());
  * MyClass
  * - Main class to build and load our Flutter Widgets
  */
-class MyApp extends StatelessWidget {
-  var questionIndex = 0;
+class MyApp extends StatefulWidget {
+  //Create State
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return _MyAppState();
+  }
+}
+
+// By Putting underscore we have made our class Private
+class _MyAppState extends State<MyApp> {
+  var _questionIndex = 0; //By adding underscore we make this property private
 
   //Question Answered Method
-  void questionAnswered() {
-    questionIndex = questionIndex + 1;
-    print(questionIndex);
+  void _questionAnswered() {
+    setState(() {
+      _questionIndex = _questionIndex + 1;
+    });
+    print(_questionIndex);
   }
 
   /// Method Override */
@@ -38,19 +50,19 @@ class MyApp extends StatelessWidget {
         body: Column(
           children: [
             // Text
-            Text(questionList.elementAt(questionIndex)),
+            Text(questionList.elementAt(_questionIndex)),
 
             //Buttons
             ElevatedButton(
-              onPressed: questionAnswered,
+              onPressed: _questionAnswered,
               child: Text("Answer A"),
             ),
             ElevatedButton(
-              onPressed: questionAnswered,
+              onPressed: _questionAnswered,
               child: Text("Answer B"),
             ),
             ElevatedButton(
-              onPressed: questionAnswered,
+              onPressed: _questionAnswered,
               child: Text("Answer C"),
             ),
           ],
