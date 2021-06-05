@@ -4,6 +4,8 @@
  */
 import 'package:flutter/material.dart';
 
+import './questions/wquestion.dart'; //Import custom widget
+
 /*
  *  Main Class to run our App
  */
@@ -50,7 +52,7 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             // Text
-            Text(questionList.elementAt(_questionIndex)),
+            WQuestion(questionList.elementAt(_questionIndex)),
 
             //Buttons
             ElevatedButton(
